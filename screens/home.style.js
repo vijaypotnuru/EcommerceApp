@@ -2,7 +2,7 @@ import { StyleSheet, StatusBar } from "react-native";
 import { COLORS, SIZES } from "../constants/index";
 
 const styles = StyleSheet.create({
-    container: {
+    safeareaview: {
         flex: 1,
         marginTop: StatusBar.currentHeight
     },
