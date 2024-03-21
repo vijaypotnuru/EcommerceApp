@@ -11,7 +11,7 @@ const Welcome = () => {
     <View>
       <View style={styles.container}>
         <Text style={styles.welcomeTxt(COLORS.black, SIZES.xSmall)}>Find The Most</Text>
-        <Text style={styles.welcomeTxt(COLORS.primary, 0)}>Hight Quality</Text>
+        <Text style={styles.welcomeTxt(COLORS.primary, 0)}>Highest Quality</Text>
       </View>
       <View style={styles.searchContainer}>
         <TouchableOpacity>

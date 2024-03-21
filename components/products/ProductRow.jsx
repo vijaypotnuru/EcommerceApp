@@ -2,6 +2,7 @@ import { FlatList, View, Text } from "react-native";
 import React from "react";
 import styles from "./productRow.style";
 import { SIZES } from "../../constants";
+import ProductCardView from "./ProductCardView";
 
 const ProductRow = () => {
   const products = [1, 2, 3, 4];
@@ -11,7 +12,7 @@ const ProductRow = () => {
         data={products}
         keyExtractor={(item) => item}
         renderItem={({ item }) => {
-          return <Text>Product</Text>;
+          return <ProductCardView />;
         }}
         horizontal
         contentContainerStyle={{
