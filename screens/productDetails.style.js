@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
     },
     upperRow: {
         marginHorizontal: 20,
-        flexDirection: "column",
+        flexDirection: "row",
         justifyContent: "space-between",
         alignItems: "center",
         position: "absolute",
@@ -20,6 +20,16 @@ const styles = StyleSheet.create({
         width: SIZES.width - 44,
         zIndex: 999,
     }
+    ,
+    image: {
+        aspectRatio: 1,
+        resizeMode: "cover",
+
+    },
+    details: {
+        marginTop: -SIZES.large,
+    }
+
 });
 
 
