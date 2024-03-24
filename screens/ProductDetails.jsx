@@ -1,10 +1,22 @@
 import { View, Text, SafeAreaView, TouchableOpacity, Image } from "react-native";
-import React from "react";
+import React, { useState } from "react";
 import { Ionicons, SimpleLineIcons } from "@expo/vector-icons";
 import styles from "./productDetails.style";
-import { COLORS } from "../constants";
+import { COLORS, SIZES } from "../constants";
 
 const ProductDetails = ({ navigation }) => {
+  const [count, setCount] = useState(1);
+
+  const increment = () => {
+    setCount(count + 1);
+  };
+
+  const decrement = () => {
+    if (count > 1) {
+      setCount(count - 1);
+    }
+  };
+
   return (
     <SafeAreaView style={styles.safeareaview}>
       <View style={styles.container}>
@@ -33,13 +45,32 @@ const ProductDetails = ({ navigation }) => {
               <Text style={styles.ratingText}> (4.9)</Text>
             </View>
             <View style={styles.rating}>
-              <TouchableOpacity onPress={() => {}}>
-                <SimpleLineIcons name="plus" size={20}  />
+              <TouchableOpacity onPress={() => increment()}>
+                <SimpleLineIcons name="plus" size={20} />
               </TouchableOpacity>
-              <Text style={styles.ratingText}> (4.9)</Text>
-              <TouchableOpacity onPress={() => {}}>
+              <Text style={styles.ratingText}> {count} </Text>
+              <TouchableOpacity onPress={() => decrement()}>
                 <SimpleLineIcons name="minus" size={20} />
               </TouchableOpacity>
+            </View>
+          </View>
+          <View style={styles.descriptionWrapper}>
+            <Text style={styles.description}>Description</Text>
+            <Text style={styles.descText}>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut diam quam nulla porttitor massa. Lectus sit amet est placerat. Pulvinar proin gravida hendrerit lectus. Sed
+              egestas egestas fringilla phaseempus. Arcu ac tortor dignissim convallis aenean et. Vel turpis nunc eget lorem dolor sed.
+            </Text>
+          </View>
+          <View style={{ marginBottom: SIZES.small }}>
+            <View style={styles.location}>
+              <View
+                style={{
+                  flexDirection: "row",
+                }}
+              >
+                <Ionicons name="location-outline" size={20} />
+                <Text style={styles.ratingText}>Location</Text>
+              </View>
             </View>
           </View>
         </View>
