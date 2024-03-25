@@ -1,6 +1,6 @@
 import { View, Text, SafeAreaView, TouchableOpacity, Image } from "react-native";
 import React, { useState } from "react";
-import { Ionicons, SimpleLineIcons } from "@expo/vector-icons";
+import { Ionicons, SimpleLineIcons, MaterialCommunityIcons } from "@expo/vector-icons";
 import styles from "./productDetails.style";
 import { COLORS, SIZES } from "../constants";
 
@@ -48,7 +48,7 @@ const ProductDetails = ({ navigation }) => {
               <TouchableOpacity onPress={() => increment()}>
                 <SimpleLineIcons name="plus" size={20} />
               </TouchableOpacity>
-              <Text style={styles.ratingText}> {count} </Text>
+              <Text style={styles.ratingText}>{count}</Text>
               <TouchableOpacity onPress={() => decrement()}>
                 <SimpleLineIcons name="minus" size={20} />
               </TouchableOpacity>
@@ -69,9 +69,25 @@ const ProductDetails = ({ navigation }) => {
                 }}
               >
                 <Ionicons name="location-outline" size={20} />
-                <Text style={styles.ratingText}>Location</Text>
+                <Text style={styles.ratingText}> Allipuram, Visakhapatnam </Text>
+              </View>
+              <View
+                style={{
+                  flexDirection: "row",
+                }}
+              >
+                <MaterialCommunityIcons name="truck-delivery-outline" size={20} />
+                <Text style={styles.ratingText}> Free Delivery </Text>
               </View>
             </View>
+          </View>
+          <View style={styles.cartRow}>
+            <TouchableOpacity onPress={() => {}} style={styles.cartBtn}>
+              <Text style={styles.cartTitle}>BUY NOW</Text>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => {}} style={styles.addCart}>
+              <Text style={styles.cartTitle}>BUYDSDD NOW</Text>
+            </TouchableOpacity>
           </View>
         </View>
       </View>
