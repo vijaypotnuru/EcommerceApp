@@ -1,6 +1,6 @@
 import { View, Text, SafeAreaView, TouchableOpacity, Image } from "react-native";
 import React, { useState } from "react";
-import { Ionicons, SimpleLineIcons, MaterialCommunityIcons } from "@expo/vector-icons";
+import { Ionicons, SimpleLineIcons, MaterialCommunityIcons, Fontisto } from "@expo/vector-icons";
 import styles from "./productDetails.style";
 import { COLORS, SIZES } from "../constants";
 
@@ -86,7 +86,7 @@ const ProductDetails = ({ navigation }) => {
               <Text style={styles.cartTitle}>BUY NOW</Text>
             </TouchableOpacity>
             <TouchableOpacity onPress={() => {}} style={styles.addCart}>
-              <Text style={styles.cartTitle}>BUYDSDD NOW</Text>
+              <Fontisto name="shopping-bag" size={22} color={COLORS.lightWhite} />
             </TouchableOpacity>
           </View>
         </View>
