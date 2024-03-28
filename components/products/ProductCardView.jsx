@@ -5,23 +5,23 @@ import { Ionicons } from "@expo/vector-icons";
 import { COLORS } from "../../constants";
 import { useNavigation } from "@react-navigation/native";
 
-const ProductCardView = () => {
+const ProductCardView = ({ item }) => {
   const navigation = useNavigation();
   return (
-    <TouchableOpacity onPress={() => navigation.navigate("ProductDetails")}>
+    <TouchableOpacity onPress={() => navigation.navigate("ProductDetails", { item })}>
       <View style={styles.container}>
         <View style={styles.imageContainer}>
-          <Image source={{ uri: "https://res.cloudinary.com/dmlhm8dwi/image/upload/v1655812677/cld-sample-4.jpg" }} style={styles.image} />
+          <Image source={{ uri: item.imageUrl }} style={styles.image} />
         </View>
         <View style={styles.details}>
           <Text style={styles.title} numberOfLines={1}>
-            Product
+            {item.title}
           </Text>
           <Text style={styles.supplier} numberOfLines={1}>
-            Supplier
+            {item.supplier}
           </Text>
           <Text style={styles.price} numberOfLines={1}>
-            ₹23535
+            ₹{item.price}
           </Text>
         </View>
         <TouchableOpacity style={styles.addBtn}>

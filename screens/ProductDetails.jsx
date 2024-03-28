@@ -1,10 +1,14 @@
 import { View, Text, SafeAreaView, TouchableOpacity, Image } from "react-native";
 import React, { useState } from "react";
+import { useRoute } from "@react-navigation/native";
 import { Ionicons, SimpleLineIcons, MaterialCommunityIcons, Fontisto } from "@expo/vector-icons";
 import styles from "./productDetails.style";
 import { COLORS, SIZES } from "../constants";
 
 const ProductDetails = ({ navigation }) => {
+  const route = useRoute();
+  const { item } = route.params;
+
   const [count, setCount] = useState(1);
 
   const increment = () => {
@@ -28,12 +32,12 @@ const ProductDetails = ({ navigation }) => {
             <Ionicons name="heart" size={30} color={COLORS.primary} />
           </TouchableOpacity>
         </View>
-        <Image source={{ uri: "https://res.cloudinary.com/dmlhm8dwi/image/upload/v1655812677/cld-sample-4.jpg" }} style={styles.image} />
+        <Image source={{ uri: item.imageUrl }} style={styles.image} />
         <View style={styles.details}>
           <View style={styles.titleRow}>
-            <Text style={styles.title}>Product</Text>
+            <Text style={styles.title}>{item.title}</Text>
             <View style={styles.priceWrapper}>
-              <Text style={styles.price}>₹ 660.88</Text>
+              <Text style={styles.price}>₹ {item.price}</Text>
             </View>
           </View>
 
@@ -56,10 +60,7 @@ const ProductDetails = ({ navigation }) => {
           </View>
           <View style={styles.descriptionWrapper}>
             <Text style={styles.description}>Description</Text>
-            <Text style={styles.descText}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut diam quam nulla porttitor massa. Lectus sit amet est placerat. Pulvinar proin gravida hendrerit lectus. Sed
-              egestas egestas fringilla phaseempus. Arcu ac tortor dignissim convallis aenean et. Vel turpis nunc eget lorem dolor sed.
-            </Text>
+            <Text style={styles.descText}>{item.description}</Text>
           </View>
           <View style={{ marginBottom: SIZES.small }}>
             <View style={styles.location}>
@@ -69,7 +70,7 @@ const ProductDetails = ({ navigation }) => {
                 }}
               >
                 <Ionicons name="location-outline" size={20} />
-                <Text style={styles.ratingText}> Allipuram, Visakhapatnam </Text>
+                <Text style={styles.ratingText}> {item.product_location}</Text>
               </View>
               <View
                 style={{
