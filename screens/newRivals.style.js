@@ -1,0 +1,29 @@
+import { StyleSheet, StatusBar } from "react-native";
+import { COLORS, SIZES } from "../constants/index"
+
+const styles = StyleSheet.create({
+    safeareaview: {
+        flex: 1,
+        marginTop: StatusBar.currentHeight,
+        backgroundColor: COLORS.lightWhite,
+    },
+    wrapper: {
+        flex: 1,
+        backgroundColor: COLORS.lightWhite,
+    },
+    upperRow: {
+        width: SIZES.width - 50,
+        marginHorizontal: SIZES.large,
+        flexDirection: "row",
+        justifyContent: "flex-start",
+        alignItems: "center",
+        position: "absolute",
+        backgroundColor: COLORS.primary,
+        borderRadius: SIZES.large,
+        top: SIZES.large,
+        zIndex: 9999,
+    }
+
+});
+
+export default styles;
