@@ -1,16 +1,22 @@
-import { StyleSheet, Text, View, SafeAreaView } from "react-native";
+import { StyleSheet, Text, View, SafeAreaView, TouchableOpacity } from "react-native";
 import React from "react";
+import { Ionicons } from "@expo/vector-icons";
 import styles from "./newRivals.style";
+import { COLORS } from "../constants";
+import { ProductList } from "../components";
 
-const NewRivals = () => {
+const NewRivals = ({ navigation }) => {
   return (
     <SafeAreaView style={styles.safeareaview}>
-     <View style={styles.wrapper}>
-      <View style={styles.upperRow}>
-
+      <View style={styles.wrapper}>
+        <View style={styles.upperRow}>
+          <TouchableOpacity onPress={() => navigation.goBack()}>
+            <Ionicons name="chevron-back-circle" size={30} color={COLORS.lightWhite} />
+          </TouchableOpacity>
+          <Text style={styles.heading}>Products</Text>
+        </View>
+        <ProductList />
       </View>
-
-     </View>
     </SafeAreaView>
   );
 };

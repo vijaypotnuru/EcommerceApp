@@ -21,7 +21,14 @@ const styles = StyleSheet.create({
         backgroundColor: COLORS.primary,
         borderRadius: SIZES.large,
         top: SIZES.large,
-        zIndex: 9999,
+        zIndex: 999,
+    },
+    heading: {
+        fontFamily: "semibold",
+        fontSize: SIZES.medium,
+        color: COLORS.lightWhite,
+        marginLeft: 5,
+
     }
 
 });

@@ -2,8 +2,8 @@ import { TouchableOpacity, Text, View, SafeAreaView, ScrollView } from "react-na
 import React from "react";
 import { Ionicons, Fontisto } from "@expo/vector-icons";
 import styles from "./home.style";
-import { Carousel, Headings, Welcome } from "../components";
-import ProductRow from "../components/products/ProductRow";
+import { Carousel, Headings, ProductRow, Welcome } from "../components";
+
 
 const Home = () => {
   return (

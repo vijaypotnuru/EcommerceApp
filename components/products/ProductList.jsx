@@ -1,14 +1,12 @@
-import { FlatList, View, Text } from "react-native";
+import { ActivityIndicator, FlatList, Text, View } from "react-native";
 import React, { useState } from "react";
-import styles from "./productRow.style";
 import { COLORS, SIZES } from "../../constants";
-import { ActivityIndicator } from "react-native";
+import styles from "./productList.style";
 import { ProductCardView } from "../../components";
 
-const ProductRow = () => {
+const ProductList = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
-
   const products = [
     {
       id: 1,
@@ -72,27 +70,20 @@ const ProductRow = () => {
       product_location: "vijayawada",
     },
   ];
+
+  if (isLoading) {
+    return (
+      <View style={styles.loadingContainer}>
+        <ActivityIndicator size={SIZES.xxLarge} color={COLORS.primary} />
+      </View>
+    );
+  }
+
   return (
     <View style={styles.container}>
-      {isLoading ? (
-        <ActivityIndicator size={SIZES.xxLarge} color={COLORS.primary} />
-      ) : error ? (
-        <Text>Something went wrong</Text>
-      ) : (
-        <FlatList
-          data={products}
-          keyExtractor={(item) => item.id}
-          renderItem={({ item }) => {
-            return <ProductCardView item={item} />;
-          }}
-          horizontal
-          contentContainerStyle={{
-            columnGap: SIZES.medium,
-          }}
-        />
-      )}
+      <FlatList data={products} keyExtractor={(item) => item.id} numColumns={2} renderItem={({item}) => <ProductCardView item={item} />} contentContainerStyle={styles.container} ItemSeparatorComponent={() => <View style={styles.separator} />} />
     </View>
   );
 };
 
-export default ProductRow;
+export default ProductList;
