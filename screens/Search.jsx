@@ -1,19 +1,20 @@
-import { TouchableOpacity, TextInput, SafeAreaView, StyleSheet, Text, View } from "react-native";
+import { TouchableOpacity, TextInput, SafeAreaView, FlatList, StyleSheet, Text, View, Image } from "react-native";
 import React, { useState } from "react";
 import styles from "./search.style";
 import { Feather, Ionicons } from "@expo/vector-icons";
 import { COLORS, SIZES } from "../constants";
+import fakeData from "../fakeData";
+import SearchTile from "../components/products/SearchTile";
 
 const Search = () => {
   const [searchKey, setSearchKey] = useState("");
   const [searchResults, setSearchResults] = useState([]);
-
-  const handleSearch = () => {
-   try {
-    
-   } catch (error) {
-    
-   }
+  console.log(searchResults);
+  const handleSearch = async () => {
+    try {
+      const response = fakeData; // please change it with original API call
+      setSearchResults(response);
+    } catch (error) {}
   };
 
   return (
@@ -31,6 +32,20 @@ const Search = () => {
           </TouchableOpacity>
         </View>
       </View>
+      {searchResults.length === 0 ? (
+        <View style={{ flex: 1 }}>
+          <Image source={require("../assets/images/Pose23.png")} style={styles.searchImage} />
+        </View>
+      ) : (
+        <FlatList
+          data={fakeData}
+          keyExtractor={(item) => item.id}
+          renderItem={({ item }) => <SearchTile item={item} />}
+          style={{
+            marginHorizontal: 12,
+          }}
+        />
+      )}
     </SafeAreaView>
   );
 };
